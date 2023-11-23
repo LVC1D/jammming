@@ -1,16 +1,25 @@
-import SearchResults from './SearchResults';
+import React, {useState} from "react";
 
-function SearchBar() {
+function SearchBar({showResults}) {
     
+    const [searchTerm, setSearchTerm] = useState('')
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        showResults(searchTerm);
+    }
 
     return (
         <>
-            <form>
-                <input type="text" required />
-                <button>Search</button>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    required 
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button type="submit">Search</button>
             </form>
-            <SearchResults />
         </>
     )
 }
