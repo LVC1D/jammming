@@ -4,7 +4,6 @@ export function Track({artist, track}) {
             <p style={{display: "inline-block"}}>
                 {artist} - {track}
             </p>
-            <button type="button">+</button>
         </li>
     )
 }

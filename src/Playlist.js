@@ -1,13 +1,20 @@
 import React from "react";
 import { Track } from "./Track";
 
-export function PLaylist() {
+function PLaylist({playlistName, namePlaylist, playlist}) {
     return (
         <>
-            <h2>Playlist</h2>
+            <div onChange={namePlaylist} >
+                <h2>{playlistName}</h2>
+                <input type="text" value={playlistName} />
+            </div>
             <ul>
-                
+                {playlist.map((track, index) => (
+                    <Track key={index} artist={track.artist} track={track.song} />
+                ))}
             </ul>
         </>
     )
 }
+
+export default PLaylist;
